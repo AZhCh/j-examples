@@ -1,0 +1,17 @@
+group 'com.github.azhch'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+subprojects {
+    apply plugin: 'java-library'
+    dependencies {
+        implementation 'org.apache.rocketmq:rocketmq-client:4.9.4'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

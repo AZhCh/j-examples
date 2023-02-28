@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+group 'com.github.azhch'
+version '1.0-SNAPSHOT'
+
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(8)
+        }
+    }
+
+    compileJava {
+        options.incremental = true
+        options.fork = true
+        options.failOnError = true
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'java-library'
+    dependencies {
+        implementation 'org.slf4j:slf4j-api:1.7.3'
+        implementation 'ch.qos.logback:logback-classic:1.2.3'
+        implementation 'ch.qos.logback:logback-core:1.2.3'
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
