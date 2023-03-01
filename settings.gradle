@@ -4,4 +4,5 @@ include 'j-rocketmq-example:rocketmq-producer'
 findProject(':j-rocketmq-example:rocketmq-producer')?.name = 'rocketmq-producer'
 include 'j-rocketmq-example:rocketmq-consumer'
 findProject(':j-rocketmq-example:rocketmq-consumer')?.name = 'rocketmq-consumer'
+include 'j-spring-example'
 
